@@ -1,0 +1,110 @@
+﻿@model ASS_BanHang_Final.Models.Product
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+ <div class="pagetitle">
+    <h1>Chi tiết sản phẩm</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item active">Sửa sản phẩm</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+
+
+
+ <section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="" alt="Product Image" class="rounded-circle">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Sửa sản phẩm</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <div class=""tab-pane fade show active profile-overview pt-3" id="profile-edit">
+                            <!-- Profile Edit Form -->
+                            <form asp-action="Edit" asp-route-id="@Model.Id" >
+                                <div class="row mb-3">
+                                    <label for="productImage" class="col-md-4 col-lg-3 col-form-label">Ảnh sản phẩm</label>
+                                    <div class="col-md-8 col-lg-9">
+                                    <img src="" alt="Product">
+                                    <div class="pt-2">
+                                        <a  class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                                        <a  class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="Name" class="col-md-4 col-lg-3 col-form-label">Tên sản phẩm</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="Name" type="text" class="form-control" id="fullName" >
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="Description" class="col-md-4 col-lg-3 col-form-label">Mô tả</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <textarea asp-for="Description" class="form-control" id="about" style="height: 100px"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="Price" class="col-md-4 col-lg-3 col-form-label">Giá</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="Price" type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="AvailableQuantity" class="col-md-4 col-lg-3 col-form-label">Số lượng tồn</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="AvailableQuantity" type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="Status" class="col-md-4 col-lg-3 col-form-label">Trạng thái</label>
+                                    <div class="col-md-8 col-lg-9">
+                                    <input asp-for="Status" type="text" class="form-control" >
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="Supplier" class="col-md-4 col-lg-3 col-form-label">Nhà cung cấp</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="Supplier" type="text" class="form-control" >
+                                    </div>
+                                </div>
+       
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form><!-- End Profile Edit Form -->
+                        </div>
+                    </div><!-- End Bordered Tabs -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

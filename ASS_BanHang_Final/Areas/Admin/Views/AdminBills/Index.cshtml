@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ASS_BanHang_Final.Models.Bill>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+ <section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                   
+
+
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                               
+                                <th scope="col">Người dùng</th>
+                                <th scope="col">Ngày tạo</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Số điện thoại</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(Model != null)
+                            {
+                                foreach(var item in Model)
+                                {
+                                    <tr>
+                                        
+                                        <td>
+                                            @foreach (var user in ViewData["GetUsername"] as SelectList)
+                                            {
+                                                if (user.Value == item.UserID.ToString())
+                                                {
+                                                    @user.Text
+                                                }
+                                            }
+                                        </td>
+                                        <td>@item.CreateDate</td>
+                                        <td>@item.Status</td>
+                                        <td>@item.Address</td>
+                                        <td>@item.SDT</td>
+                                        <td>
+                                            <a asp-asp-area="Admin" asp-controller="AdminBills" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-tone m-r-5">Detail</a>
+                                            <a asp-asp-area="Admin" asp-controller="AdminBills" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm btn-tone m-r-5">Edit</a>
+                                            <a asp-asp-area="Admin" asp-controller="AdminBills" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm btn-tone m-r-5">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }                         
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Modal -->
+
+
+

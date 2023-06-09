@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ASS_BanHang_Final.Models.User>
+
+@{
+    ViewData["Title"] = "Quản lý Users";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+ <section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                   
+
+                     <a asp-area="Admin" asp-controller="AdminUsers" asp-action="Create" class="btn btn-primary btn-sm btn-tone m-r-5">Create User</a>
+
+                    @if (ViewData["RoleList"] != null)
+                    {
+                        <select class="custom-select" style="min-width: 180px;" name="role">
+                            <option value="0" disabled selected>Chọn quyền truy cập</option>
+                            @foreach (var role in ViewData["RoleList"] as SelectList)
+                            {
+                                <option value="@role.Value">@role.Text</option>
+                            }
+                        </select>
+                    }
+
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                               
+                                <th scope="col">Username</th>
+                                
+                                <th scope="col">Status</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(Model != null)
+                            {
+                                foreach(var item in Model)
+                                {
+                                     <tr>
+                                        
+                                        <td>@item.Username</td>
+                                        
+                                        <td>
+                                            @item.Status
+                                        </td>
+                                        <td>
+                                            @foreach (var role in ViewData["RoleList"] as SelectList)
+                                            {
+                                                if (role.Value == item.RoleId.ToString())
+                                                {
+                                                    @role.Text
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="AdminUsers" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-tone m-r-5">Detail</a>
+                                            <a asp-area="Admin" asp-controller="AdminUsers" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm btn-tone m-r-5">Edit</a>
+                                            <a asp-area="Admin" asp-controller="AdminUsers" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm btn-tone m-r-5">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }                         
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

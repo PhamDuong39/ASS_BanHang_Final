@@ -1,0 +1,65 @@
+﻿@using ASS_BanHang_Final.ViewModels;
+
+@{
+    ViewData["Title"] = "Cart Overview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string user = ViewData["user"] == null ?"" : ViewData["user"] as string;
+
+    CartDetailViewModel ListConfirmBuy = new CartDetailViewModel();
+    ListConfirmBuy = ViewData["ConfirmPaymentView"] as CartDetailViewModel;
+    var listSP = ListConfirmBuy.cartItems;
+}
+
+
+@if (listSP.Count > 0)
+{
+    <div class="row" >
+        <div class="col-md-8" >
+             <table class="table">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                   
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+                @foreach (var item in listSP)
+                {
+                    <tr>
+                        <td>
+
+                            @foreach (var product in ViewData["lstSlTProduct"] as SelectList)
+                            {
+                                if (product.Value == item.IdSp.ToString())
+                                {
+                                    @product.Text
+                                }
+                            }
+
+                        </td>
+                        <td>@item.Quantity</td>
+                      
+                        <td>@item.Price</td>
+                        <td>@listSP.Where(x => x.IdSp == item.IdSp).Sum(x => x.Quantity * x.Price)</td>
+                    </tr>
+                }
+                <tr>
+                    <td class="text-right" colspan="4">Grand Total: @ListConfirmBuy.GrandTotal</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4" >
+
+
+            @await Html.PartialAsync("_ViewPaymentBillPartial.cshtml");
+            @*@{ Html.RenderPartial("_ViewPaymentBillPartial"); }*@
+            
+        </div>
+    </div>
+}
+else
+{
+    <h3 class="display-4 text-center">Your cart is empty.</h3>
+}
+

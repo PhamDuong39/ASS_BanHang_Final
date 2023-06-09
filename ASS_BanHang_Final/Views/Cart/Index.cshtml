@@ -1,0 +1,58 @@
+﻿@using ASS_BanHang_Final.ViewModels;
+@model CartDetailViewModel
+@{
+    ViewData["Title"] = "Cart Overview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.cartItems.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th></th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        @foreach (var item in Model.cartItems)
+        {
+            <tr>
+                <td>
+
+                    @foreach (var product in ViewData["lstSlTProduct"] as SelectList)
+                    {
+                        if (product.Value == item.IdSp.ToString())
+                        {
+                            @product.Text
+                        }
+                    }
+
+                </td>
+                <td>@item.Quantity</td>
+                <td>
+                    
+                    <a class="btn btn-primary btn-sm" asp-controller="Cart" asp-action="QuickAdd" asp-route-IdSP="@item.IdSp">+</a>
+                    <a class="btn btn-info btn-sm" asp-controller="Cart" asp-action="Decrease" asp-route-IdSP="@item.IdSp">-</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Cart" asp-action="Remove" asp-route-IdSP="@item.IdSp">Remove</a>
+                </td>
+                <td>@item.Price</td>
+                <td>@Model.cartItems.Where(x => x.IdSp == item.IdSp).Sum(x => x.Quantity * x.Price)</td>
+            </tr>
+        }
+        <tr>
+            <td class="text-right" colspan="4">Grand Total: @Model.GrandTotal</td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="4">
+                <a class="btn btn-danger" asp-controller="Cart" asp-action="Clear">Clear Cart</a>   
+                <a class="btn btn-danger" asp-controller="Payment" asp-action="ViewPayment">Buy now</a>  
+            </td>
+        </tr>
+    </table>
+}
+else
+{
+    <h3 class="display-4 text-center">Your cart is empty.</h3>
+}
+

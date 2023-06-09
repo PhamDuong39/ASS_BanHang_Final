@@ -1,0 +1,103 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>Modaz HTML Template</title>
+
+    <meta name="author" content="themesflat.com">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="~/userassets/stylesheets/bootstrap.css" >
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="~/userassets/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="~/userassets/stylesheets/responsive.css">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="~/userassets/stylesheets/colors/color1.css" id="colors">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="~/userassets/stylesheets/animate.css">
+
+
+    <!-- Favicon and touch icons  -->
+    <link href="~/userassets/icon/favicon.png" rel="shortcut icon">
+
+    <!--[if lt IE 9]>
+        <script src="~/userassets/javascript/html5shiv.js"></script>
+        <script src="~/userassets/javascript/respond.min.js"></script>
+    <![endif]-->
+</head> 
+<body class="header_sticky header-style-2 header-center has-menu-extra">
+	<!-- Preloader -->
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Boxed -->
+    <div class="boxed">
+         <!-- Header -->
+        @await Html.PartialAsync("_HeaderPartialView.cshtml"); 
+
+
+        @RenderBody();
+
+        <!-- Footer -->
+        @await Html.PartialAsync("_FooterPartialView.cshtml"); 
+
+    </div>
+
+    <!-- Javascript -->
+
+
+   
+
+
+
+
+    <script src="~/userassets/javascript/jquery.min.js"></script>
+    <script src="~/userassets/javascript/tether.min.js"></script>
+    <script src="~/userassets/javascript/bootstrap.min.js"></script> 
+    <script src="~/userassets/javascript/jquery.easing.js"></script>    
+    <script src="~/userassets/javascript/parallax.js"></script>
+    <script src="~/userassets/javascript/jquery-waypoints.js"></script>
+    <script src="~/userassets/javascript/jquery-countTo.js"></script>
+    <script src="~/userassets/javascript/jquery.countdown.js"></script>
+    <script src="~/userassets/javascript/jquery.flexslider-min.js"></script>
+    <script src="~/userassets/javascript/images-loaded.js"></script>
+    <script src="~/userassets/javascript/jquery.isotope.min.js"></script>
+    <script src="~/userassets/javascript/magnific.popup.min.js"></script>
+    <script src="~/userassets/javascript/jquery.hoverdir.js"></script>
+    <script src="~/userassets/javascript/owl.carousel.min.js"></script>
+    <script src="~/userassets/javascript/equalize.min.js"></script>
+    <script src="~/userassets/javascript/gmap3.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIEU6OT3xqCksCetQeNLIPps6-AYrhq-s&region=GB"></script>
+    <script src="~/userassets/javascript/jquery-ui.js"></script>
+    
+    <script src="~/userassets/javascript/jquery.cookie.js"></script>
+    <script src="~/userassets/javascript/main.js"></script>
+<script src="~/userassets/~/userassets/rev-slider/js/jquery.themepunch.tools.min.js"></script>
+    <!-- Revolution Slider -->
+    <script src="~/userassets/rev-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/userassets/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/userassets/javascript/rev-slider.js"></script>
+    <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->  
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/userassets/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+</body> 
+</html>                               

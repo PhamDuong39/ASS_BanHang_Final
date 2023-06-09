@@ -1,0 +1,75 @@
+﻿@model ASS_BanHang_Final.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết Products";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+ <div class="pagetitle">
+    <h1>Chi tiết sản phẩm</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item active">Chi tiết sản phẩm</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="assets/img/profile-img.jpg" alt="Product Image" class="rounded-circle">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Tổng quan</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title">Mô tả sản phẩm</h5>
+                            <p class="small fst-italic">@Model.Description</p>
+
+                            <h5 class="card-title">Chi tiết sản phẩm</h5>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Tên sản phẩm</div>
+                                <div class="col-lg-9 col-md-8">@Model.Name</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Giá</div>
+                                <div class="col-lg-9 col-md-8">@Model.Price</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Số lượng tồn</div>
+                                <div class="col-lg-9 col-md-8">@Model.AvailableQuantity</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Trạng thái</div>
+                                <div class="col-lg-9 col-md-8">@Model.Status</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Nhà cung cấp</div>
+                                <div class="col-lg-9 col-md-8">@Model.Supplier</div>
+                            </div>
+                        </div>       
+                    </div><!-- End Bordered Tabs -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
